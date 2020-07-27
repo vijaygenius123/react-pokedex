@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Pokemon = () => {
+const Pokemon = (props) => {
+    const { pokemonId } = props.match.params;
     return (
-        <div> Pokemon </div>
+        <div> Pokemon - { pokemonId} </div>
     )
 }
 
