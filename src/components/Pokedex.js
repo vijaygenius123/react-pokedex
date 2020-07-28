@@ -17,7 +17,8 @@ const useStyles = makeStyles({
     }
 })
 
-const Pokedex = () => {
+const Pokedex = (props) => {
+    const { history } = props
     const [pokemons, setPokemons] = useState(mockData)
     const classes = useStyles()
 
@@ -26,14 +27,14 @@ const Pokedex = () => {
         const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
             <Grid item xs={12} sm={4} key={id}>
-                <Card>
+                <Card onClick={() => history.push(`${id}`)}>
                     <CardMedia
                         className={classes.cardMedia} image={sprite} style={{ width: '130px', height: '130px' }} />
                     <CardContent className={classes.cardContent}>
                         <Typography>{name.toUpperCase()}</Typography>
                     </CardContent>
                 </Card>
-            </Grid>
+            </Grid >
         )
     }
 
